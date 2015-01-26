@@ -25,7 +25,9 @@ a name like $userId will be automatically typed as a number and validated as num
     $bool = $validate->Validate($objectToValidate,$rules);
 
 ## Motivation
-Coding in C# has made me more conscious of how I should use types. Error val
+Coding in C# has made me more conscious of how I should use types. Error validation becomes a bit easier knowing that I will
+always have a fully populated object & prevents me from being lazy. I can see me upgrading this more, to validate two objects
+and more specific custom built in common rules.
 
 Thanks,
 Clint Small Cain
@@ -40,9 +42,35 @@ none.
 
 ## Tests
     **Using PHPUnit**
-    $instanceOfTools = new \mvcSystem\Lazy("Tools");
-    $instance = $instanceOfTools->Value();//use in your code
-    $this->assertInstanceOf('Tools', $instance);
+    $validate = new objectValidation();
+            $notifyUser = new notifyUser();
+            $notifyUser->userId = 1;
+            $notifyUser->message = "this is a test";
+            $notifyUser->activity = activityConst::newsadded;
+            $notifyUser->username = "daddy";
+            $notifyUser->subject = "daddy is good";
+            $notifyUser->email = "git@github.com";
+            $notifyUser->fromUserID = "1";
+            $notifyUser->aboutID = "";
+            $notifyUser->aboutIDTable = "dk";
+            $notifyUser->appID = "s";
+            $notifyUser->clintList = array("clintId"=>6,1,"you");
+            $notifyUser->clintDTO = new stdClass();
+            $notifyUser->clintDTO->yese = "clint";
+            $notifyUser->clintDTO->isGood = true;
+
+            $rule = new stdClass();
+            $rule->userId = "[1-5]";
+            $rule->aboutID = "//";
+            $rule->aboutIDTable = "//";
+            $rule->clintDTO = new stdClass();
+            $rule->clintDTO->value = new stdClass();
+            $rule->clintDTO->value->yese = "/clint/";
+            $rule->clintDTO->value->isGood = false;
+            //$rule->clintDTO = new stdClass();
+            $rule->clintDTO->key = "yese,isGood";
+            $valid = $validate->Validate($notifyUser,$rule);
+            $this->assertTrue($valid,true);
 
 ## Contributors
 
