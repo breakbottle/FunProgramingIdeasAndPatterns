@@ -18,7 +18,7 @@ namespace mvcSystem\logic;
  * Cases - keywords:
  * (*)Id - numeric
  * (*)List, (*)Array - is_array
- * (*)Object, (*)Model, (*)DTO
+ * (*)Object, (*)Model, (*)DTO (*)Callback, (*)Function, (*)Closure
  * everything else will eval as valued string, has value
  *
  * Examples Uses:
@@ -81,7 +81,7 @@ class objectValidation {
     private function Types($property,$enum = 0){
         switch($enum){
             case 1:
-                $bool = preg_match("/Object/",$property) || preg_match("/DTO/",$property) || preg_match("/Model/",$property);
+                $bool = preg_match("/Object/",$property) || preg_match("/DTO/",$property) || preg_match("/Model/",$property) || preg_match("/Closure/",$property) || preg_match("/Function/",$property) || preg_match("/Callback/",$property);
                 break;
             case 2:
                 $bool = preg_match("/List/",$property) || preg_match("/Array/",$property);
@@ -237,11 +237,5 @@ class objectValidation {
            return true;
         }
         return false;
-    }
-}
-class ObjectValidationException extends \Exception{
-    public function __construct($message,$code = 0, \Exception $previous = null){
-
-        parent::__construct($message, $code, $previous);
     }
 }
