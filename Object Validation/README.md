@@ -6,7 +6,7 @@ a name like $userId will be automatically typed as a number and validated as num
  * Cases - keywords:
  * (*)Id - numeric
  * (*)List, (*)Array - is_array
- * (*)Object, (*)Model, (*)DTO
+ * (*)Object, (*)Model, (*)DTO (*)Callback, (*)Function, (*)Closure
  * everything else will eval as valued string, has value
 -Clint
 
