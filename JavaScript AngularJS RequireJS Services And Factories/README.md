@@ -1,11 +1,11 @@
 # AngularJs - RequireJs - Injection for Services and Factories 
-Use Angularjs to load your app, then use RequiresJs to load the services and factories files.
+Use AngularJs to load your app, then use RequiresJs to load the services and factories files.
 You would add your basic file to your application, jQuery,Bootstrap whatever, but then based on Controller you would then 
 load Services and Factories as needed. (Uses Promises)
 -Clint
 
 ## Code Example
-    Usage - call factory names, give list of Services/Factories names then inject
+    Usage - call custom factory names, give list of Services/Factories names then inject
         RequireJs(['ServiceName','FactoryName']).then(function(object){
             console.log("what is object", object)
         }

@@ -9,13 +9,13 @@ angular.module('app').factory('RequireJs',function($q){
     return function(requireList){
         require.config({
             baseUrl: '',
-            paths: {//add you paths
+            paths: {//add your paths
                 /*
                  'bilDebug':['app/common/debug'],
                  'test':['app/common/test']
 
                  Example:
-                     Usage - cal factory name, give list of variables names, then list of services and factories to inject
+                     Usage - call custom factory names, give list of variables names, then list of services and factories to inject
                      RequireJs(['bilDebug','test']).then(function(k){
                      console.log("what is k", )
                  })
