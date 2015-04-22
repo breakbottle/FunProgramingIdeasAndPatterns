@@ -25,7 +25,7 @@ angular.module('app').factory('RequireJs',function($q){
         });
         var promise = $q.defer();
         require(requireList,function(d){
-            var inject =  angular.injector([application.name]);
+            var inject =  angular.injector([application.name]);//application refers to angular.module('app')
             var resolved = [];
             if(angular.isArray(requireList)){
                 angular.forEach(requireList,function(value,key){
